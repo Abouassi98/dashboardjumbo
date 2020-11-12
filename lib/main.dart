@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 import './home/home.dart';
 import 'package:splashscreen/splashscreen.dart';
 
+import 'account/login.dart';
+
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: Home(),
+    home: Splash(),
   ));
 }
 
@@ -22,7 +24,8 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return SplashScreen(
         seconds: 2,
-        navigateAfterSeconds: new Home(),
+        routeName: '/',
+        navigateAfterSeconds: new Login(),
         title: new Text(
           'مرحبا بكم في تطبيق ادارة المطعم',
           style: new TextStyle(

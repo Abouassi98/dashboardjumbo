@@ -1,3 +1,4 @@
+import 'package:dashboard/pages/edit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -57,7 +58,9 @@ class _MenuItemState extends State<MenuItem> {
                     FontAwesomeIcons.edit,
                     color: Colors.white,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Edit()));
+                  },
                 ),
               ),
             ),

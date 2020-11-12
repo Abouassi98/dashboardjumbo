@@ -48,6 +48,7 @@ class _AddState extends State<Add> {
         textDirection: TextDirection.rtl,
         child: Container(
           margin: EdgeInsets.all(10),
+          padding: EdgeInsets.only(top:30),
           child: Column(
             children: [
               Expanded(

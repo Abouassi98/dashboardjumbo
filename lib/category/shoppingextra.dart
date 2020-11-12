@@ -61,7 +61,7 @@ class _ShoppingState extends State<Shopping> {
   ];
   Widget extraorder(List list) {
     return Container(
-      height: MediaQuery.of(context).size.height ,
+      height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
         primary: false,
@@ -185,49 +185,46 @@ class _ShoppingState extends State<Shopping> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: primaryColor,title: Text('ادارة التصنيفات',),centerTitle: true,),
+      appBar: AppBar(
+        backgroundColor: primaryColor,
+        title: Text(
+          'ادارة التصنيفات',
+        ),
+        centerTitle: true,
+      ),
       backgroundColor: Colors.grey[50],
       body: SafeArea(
         child: Directionality(
           textDirection: TextDirection.rtl,
-          child: 
-            Container(
-              height: MediaQuery.of(context).size.height,
-              child: ListView(
-                primary: false,
-                //  shrinkWrap: true,
-                children: [
-               
-                  extraorder(extraMoqblat),
-                ],
-              ),
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            child: ListView(
+              primary: false,
+              //  shrinkWrap: true,
+              children: [
+                extraorder(extraMoqblat),
+              ],
             ),
-
-          
+          ),
         ),
       ),
-      bottomNavigationBar: Container(
-        height: MediaQuery.of(context).size.height * 0.055,
+      bottomNavigationBar: GestureDetector(
+        onTap: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => Add()));
+        },
         child: Container(
+          height: MediaQuery.of(context).size.height * 0.05,
           margin: EdgeInsets.only(bottom: 5),
           alignment: Alignment.center,
           padding: EdgeInsets.only(left: 50, right: 30),
-          child: Column(children: <Widget>[
-            GestureDetector(
-              onTap: () {
-
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Add()));
-              },
-              child: Text(
-                "اضافة تصنيف جديد",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                ),
-              ),
+          child: Text(
+            "اضافة تصنيف جديد",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
             ),
-          ]),
-          height: 40.0,
+          ),
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(
                 blurRadius: 7,

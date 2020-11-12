@@ -2,12 +2,12 @@ import 'package:dashboard/home/home.dart';
 import 'package:flutter/material.dart';
 
 
-class Register extends StatefulWidget {
+class Login extends StatefulWidget {
   @override
-  _RegisterState createState() => _RegisterState();
+  _LoginState createState() => _LoginState();
 }
 
-class _RegisterState extends State<Register> {
+class _LoginState extends State<Login> {
   final GlobalKey<FormState> _key = GlobalKey();
   Widget formField({String text, Function function}) {
     return Container(
@@ -32,7 +32,7 @@ class _RegisterState extends State<Register> {
     }
   }
 
-  bool _login = false;
+
   bool _forgetPassword = false;
   @override
   Widget build(BuildContext context) {
@@ -50,12 +50,7 @@ class _RegisterState extends State<Register> {
             if (_forgetPassword == true) {
               setState(() {
                 _forgetPassword = false;
-                _login = true;
-              });
-            } else if ((_forgetPassword == false) && (_login == true)) {
-              setState(() {
-                _forgetPassword = false;
-                _login = false;
+             
               });
             } else {
               Navigator.of(context).pop();
@@ -82,9 +77,7 @@ class _RegisterState extends State<Register> {
                                     TextStyle(color: Colors.red, fontSize: 25),
                               )
                             : Text(
-                                _login
-                                    ? 'سجل الدخول الي حسابك من هنا'
-                                    : ' انشاء حساب جديد',
+                            'سجل الدخول الي حسابك من هنا',
                                 style:
                                     TextStyle(color: Colors.red, fontSize: 25),
                               ),
@@ -99,14 +92,7 @@ class _RegisterState extends State<Register> {
                               ),
                             )
                           : Container(),
-                      if (_login == false && _forgetPassword == false)
-                        formField(
-                            function: (value) {
-                              if (value.isEmpty || value.length < 3) {
-                                return 'الرجاء ادخال الاسم كامل';
-                              }
-                            },
-                            text: "الاسم الكامل"),
+          
                       formField(
                           function: (value) {
                             if (value.isEmpty || !value.contains("@")) {
@@ -135,7 +121,7 @@ class _RegisterState extends State<Register> {
                                 },
                               ),
                             ),
-                            if (_login == true)
+                           
                               GestureDetector(
                                 child: Text(
                                   'نسيت كلمة المرور',
@@ -149,25 +135,7 @@ class _RegisterState extends State<Register> {
                               ),
                           ]),
                         ),
-                      if (_login == false && _forgetPassword == false)
-                        Container(
-                          margin: EdgeInsets.only(bottom: 10),
-                          padding: EdgeInsets.only(left: 20, right: 20),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(25)),
-                          child: TextFormField(
-                            keyboardType: TextInputType.number,
-                            decoration: InputDecoration(
-                                hintText: "رقم الهاتف",
-                                border: InputBorder.none),
-                            validator: (value) {
-                              if (value.isEmpty || value.length < 10) {
-                                return 'الرجاء ادخال رقم الهاتف';
-                              }
-                            },
-                          ),
-                        ),
+                
                       MaterialButton(
                         onPressed: _submit,
                         child: Container(
@@ -180,7 +148,7 @@ class _RegisterState extends State<Register> {
                                       color: Colors.white, fontSize: 24),
                                 )
                               : Text(
-                                  _login ? 'تسجيل جديد' : 'دخول',
+                                 'دخول',
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 20),
                                 ),
@@ -191,13 +159,7 @@ class _RegisterState extends State<Register> {
                               borderRadius: BorderRadius.circular(25)),
                         ),
                       ),
-                      if (_login == false)
-                        Container(
-                          margin: EdgeInsets.only(top: 10),
-                          alignment: Alignment.bottomCenter,
-                          child: Text(
-                              "تطبق الشروط والاحكام انت توافق علي قوانين التطبيق"),
-                        )
+               
                     ],
                   ),
                 ),
@@ -217,18 +179,7 @@ class _RegisterState extends State<Register> {
                             SizedBox(
                               width: 10,
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  _login = !_login;
-                                });
-                              },
-                              child: Text(
-                                _login ? 'تسجيل جديد' : 'دخول',
-                                style:
-                                    TextStyle(color: Colors.red, fontSize: 16),
-                              ),
-                            ),
+                        
                           ]),
                     )
             ],
